@@ -15,12 +15,12 @@ class CreatePesananTable extends Migration
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
-            $table->integer("id_perusahaan");
             $table->dateTime("waktu_pesanan");
             $table->integer("jumlah_pesanan");
             $table->string("status_pesanan");
             $table->integer("id_member");
             $table->integer("id_produk");
+            $table->timestamps();
         });
     }
 

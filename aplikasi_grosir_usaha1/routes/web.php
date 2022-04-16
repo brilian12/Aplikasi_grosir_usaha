@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\InsertmemberController;
+use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +19,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get("/", function(){
+    return view('/index');
 });
+
+//Perusahaan
+Route::get("/perusahaan", [PerusahaanController::class, "index"]);
+Route::get("/tambahperusahaan", [PerusahaanController::class, "tambah"]);
+Route::post("/insertperusahaan", [PerusahaanController::class, "insert"]);
+Route::get("deleteperusahaan/{id}", [PerusahaanController::class, "delete"]);
+Route::get("editperusahaan/{id}", [PerusahaanController::class, "edit"]);
+Route::post("/updateperusahaan/{id}", [PerusahaanController::class, "update"]);
+//admin
+Route::get("/admin", [AdminController::class, "index"]);
+Route::get("/tambahadmin", [AdminController::class, "tambah"]);
+Route::post("/insertadmin", [AdminController::class, "insert"]);
+Route::get("deleteadmin/{id}", [AdminController::class, "delete"]);
+Route::get("editadmin/{id}", [AdminController::class, "edit"]);
+Route::post("/updateadmin/{id}", [AdminController::class, "update"]);
+
+//member
+Route::get("/member", [MemberController::class, "index"]);
+Route::get("/tambahmember", [MemberController::class, "tambahmember"]);
+Route::post("/insertdata", [MemberController::class, "insertdata"]);
+Route::get("editdata/{id}", [MemberController::class, "edit"]);
+Route::post("/updatedata/{id}", [MemberController::class, "update"]);
+Route::get("deletedata/{id}", [MemberController::class, "delete"]);
+
+//login_admin
+Route::get("/login", [LoginController::class, "index"]);
+
+
+//kategori_produk
+Route::get("/kategori", [KategoriController::class, "index"]);
+Route::post("/tambahkategori", [KategoriController::class, "tambahkategori"]);
+Route::get("/insertkategori", [KategoriController::class, "insertkategori"]);
+Route::get("deletekategori/{id}", [KategoriController::class, "delete"]);
+Route::post("/updatekategori/{id}", [KategoriController::class, "update"]);
+Route::get("editkategori/{id}", [KategoriController::class, "edit"]);
