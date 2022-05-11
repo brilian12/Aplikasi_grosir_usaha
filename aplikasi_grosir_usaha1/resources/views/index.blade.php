@@ -12,5 +12,9 @@
 <a href="/member" class="btn btn-secondary">Member</a>
 <a href="/admin" class="btn btn-success">Admin</a>
 <a href="/perusahaan" class="btn btn-danger">Perusahaan</a>
+<form action="{{ route('logout') }}" method="post">
+    @csrf
+    <button type="submit" class="btn btn-secondary">Logout</button>
+</form>
 </body>
 </html>
