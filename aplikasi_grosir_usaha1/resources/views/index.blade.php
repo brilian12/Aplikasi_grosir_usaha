@@ -7,10 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+
 <h3 class="text-center">DASHBOARD</h3>
 <a href="/kategori" class="btn btn-primary">Kategori Produk</a>
 <a href="/member" class="btn btn-secondary">Member</a>
 <a href="/admin" class="btn btn-success">Admin</a>
 <a href="/perusahaan" class="btn btn-danger">Perusahaan</a>
+<a href="/produk" class="btn btn-danger">Produk</a>
 </body>
 </html>

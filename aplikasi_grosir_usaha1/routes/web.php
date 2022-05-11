@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\InsertmemberController;
 use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -57,3 +58,11 @@ Route::get("/insertkategori", [KategoriController::class, "insertkategori"]);
 Route::get("deletekategori/{id}", [KategoriController::class, "delete"]);
 Route::post("/updatekategori/{id}", [KategoriController::class, "update"]);
 Route::get("editkategori/{id}", [KategoriController::class, "edit"]);
+
+//Produk
+Route::get("/produk", [ProdukController::class, "index"]);
+Route::get("/tambahproduk", [ProdukController::class, "tambahproduk"]);
+Route::post("/insertproduk", [ProdukController::class, "insertproduk"]);
+Route::get("deleteproduk/{id}", [ProdukController::class, "delete"]);
+Route::post("/updateproduk/{id}", [ProdukController::class, "update"]);
+Route::get("editproduk/{id}", [ProdukController::class, "edit"]);
