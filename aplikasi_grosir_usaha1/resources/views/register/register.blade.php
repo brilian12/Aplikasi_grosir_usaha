@@ -11,10 +11,14 @@
 
 <body>
     <section class="login-clean" >
-        <form method="post" action="{{ route('login') }}" style="padding: 56px;background:  rgba(255,255,255,0.94);">
+        <form method="post" action="{{ route('register') }}" style="padding: 56px;background:  rgba(255,255,255,0.94);">
             @csrf
             <h1 style="text-align: center;">Grosir Usaha</h1>
             <div class="illustration"></div>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="name" placeholder="Name">
+                <span class="text-danger">{{ $errors->first('name') }}</span>
+            </div>
             <div class="mb-3">
                 <input class="form-control" type="email" name="email" placeholder="Email">
                 <span class="text-danger">{{ $errors->first('email') }}</span>
@@ -23,9 +27,11 @@
                 <input class="form-control" type="password" name="password" placeholder="Password">
                 <span class="text-danger">{{ $errors->first('password') }}</span>
             </div>
-            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(32,39,103);">Log In</button></div>
-            <a class="forgot" href="{{ route('register.form') }}">Registrasi</a>
-            <a class="forgot" href="#">Forgot your email or password?</a>
+            <div class="mb-3">
+                <input class="form-control" type="password" name="confirmation_password" placeholder="Confirmation Password">
+                <span class="text-danger">{{ $errors->first('confirmation_password') }}</span>
+            </div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(32,39,103);">Daftar</button></div>
         </form>
     </section>
 </body>
