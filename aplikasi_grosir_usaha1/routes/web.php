@@ -31,7 +31,7 @@ Route::post('/register', [RegisterController::class, "register"])->name('registe
 Route::middleware(['auth:web'])->group(function () {
 
     Route::post('logout', [LoginController::class, "logout"])->name('logout');
-
+}); //baru
     Route::get("/", function(){
         return view('/index');
     })->name('index');
@@ -60,8 +60,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get("deletedata/{id}", [MemberController::class, "delete"]);
 
 
-<<<<<<< HEAD
-//kategori_produk
+
 Route::get("/kategori", [KategoriController::class, "index"]);
 Route::post("/tambahkategori", [KategoriController::class, "tambahkategori"]);
 Route::get("/insertkategori", [KategoriController::class, "insertkategori"]);
@@ -76,15 +75,3 @@ Route::post("/insertproduk", [ProdukController::class, "insertproduk"]);
 Route::get("deleteproduk/{id}", [ProdukController::class, "delete"]);
 Route::post("/updateproduk/{id}", [ProdukController::class, "update"]);
 Route::get("editproduk/{id}", [ProdukController::class, "edit"]);
-=======
-
-    //kategori_produk
-    Route::get("/kategori", [KategoriController::class, "index"]);
-    Route::post("/tambahkategori", [KategoriController::class, "tambahkategori"]);
-    Route::get("/insertkategori", [KategoriController::class, "insertkategori"]);
-    Route::get("deletekategori/{id}", [KategoriController::class, "delete"]);
-    Route::post("/updatekategori/{id}", [KategoriController::class, "update"]);
-    Route::get("editkategori/{id}", [KategoriController::class, "edit"]);
-
-});
->>>>>>> 7c83ef3c7cde20c9d706e878a985a5d65db26c31

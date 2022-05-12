@@ -13,13 +13,7 @@
 <a href="/member" class="btn btn-secondary">Member</a>
 <a href="/admin" class="btn btn-success">Admin</a>
 <a href="/perusahaan" class="btn btn-danger">Perusahaan</a>
-<<<<<<< HEAD
-<a href="/produk" class="btn btn-danger">Produk</a>
-=======
-<form action="{{ route('logout') }}" method="post">
-    @csrf
-    <button type="submit" class="btn btn-secondary">Logout</button>
-</form>
->>>>>>> 7c83ef3c7cde20c9d706e878a985a5d65db26c31
+    <a href="/produk" class="btn btn-danger">Produk</a>
+    <a href="/login" class="btn btn-danger">Login</a>
 </body>
 </html>
