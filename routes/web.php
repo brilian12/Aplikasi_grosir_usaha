@@ -34,9 +34,7 @@ Route::get('/register', [RegisterController::class, "index"])->name('register.fo
 Route::post('/register', [RegisterController::class, "register"])->name('register');
 
 Route::middleware(['auth:web'])->group(function () {
-
-    Route::post('logout', [LoginController::class, "logout"])->name('logout');
-}); //baru
+    
     Route::get("/", function(){
         $kategori = Kategori::count();
         $admin = Admin::count();
@@ -48,7 +46,7 @@ Route::middleware(['auth:web'])->group(function () {
     })->name('index');
     
     //dashboard
-    Route::get("/dashboard", [DashboardController::class, 'index']);
+    // Route::get("/dashboard", [DashboardController::class, 'index']);
     //Perusahaan
     Route::get("/perusahaan", [PerusahaanController::class, "index"]);
     Route::get("/tambahperusahaan", [PerusahaanController::class, "tambah"]);
@@ -72,19 +70,20 @@ Route::middleware(['auth:web'])->group(function () {
     Route::post("/updatedata/{id}", [MemberController::class, "update"]);
     Route::get("deletedata/{id}", [MemberController::class, "delete"]);
 
+    Route::get("/kategori", [KategoriController::class, "index"]);
+    Route::post("/tambahkategori", [KategoriController::class, "tambahkategori"]);
+    Route::get("/insertkategori", [KategoriController::class, "insertkategori"]);
+    Route::get("deletekategori/{id}", [KategoriController::class, "delete"]);
+    Route::post("/updatekategori/{id}", [KategoriController::class, "update"]);
+    Route::get("editkategori/{id}", [KategoriController::class, "edit"]);
+    //Produk
+    Route::get("/produk", [ProdukController::class, "index"]);
+    Route::get("/tambahproduk", [ProdukController::class, "tambahproduk"]);
+    Route::post("/insertproduk", [ProdukController::class, "insertproduk"]);
+    Route::get("deleteproduk/{id}", [ProdukController::class, "delete"]);
+    Route::post("/updateproduk/{id}", [ProdukController::class, "update"]);
+    Route::get("editproduk/{id}", [ProdukController::class, "edit"]);
 
-
-Route::get("/kategori", [KategoriController::class, "index"]);
-Route::post("/tambahkategori", [KategoriController::class, "tambahkategori"]);
-Route::get("/insertkategori", [KategoriController::class, "insertkategori"]);
-Route::get("deletekategori/{id}", [KategoriController::class, "delete"]);
-Route::post("/updatekategori/{id}", [KategoriController::class, "update"]);
-Route::get("editkategori/{id}", [KategoriController::class, "edit"]);
-
-//Produk
-Route::get("/produk", [ProdukController::class, "index"]);
-Route::get("/tambahproduk", [ProdukController::class, "tambahproduk"]);
-Route::post("/insertproduk", [ProdukController::class, "insertproduk"]);
-Route::get("deleteproduk/{id}", [ProdukController::class, "delete"]);
-Route::post("/updateproduk/{id}", [ProdukController::class, "update"]);
-Route::get("editproduk/{id}", [ProdukController::class, "edit"]);
+    Route::post('logout', [LoginController::class, "logout"])->name('logout');
+}); //baru
+    

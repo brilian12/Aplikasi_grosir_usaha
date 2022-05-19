@@ -49,7 +49,7 @@
                                 
                                 
                                 <span class="d-none d-lg-inline me-2 text-gray-600 small">
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->name ?? 'None' }}
                                 </span>
                                
                                 </a>

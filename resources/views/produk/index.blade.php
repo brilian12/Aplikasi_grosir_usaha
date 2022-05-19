@@ -43,7 +43,7 @@
           @foreach ($produk as $add)
             <tr>
               <th>{{ $i++ }}</th>
-              <th><img class="rounded me-2" width="125" height="125" src="{{ url('assets\img\avatars\avatar1.jpeg') }}"></th>
+              <th><img class="rounded me-2" width="125" height="125" src="/storage/{{ $add->gambar }}" alt="" title="" ></th>
               <td>{{ $add->nama_produk }}</td>
               <td>{{ $add->satuan_produk }}</td>
               <td>{{ $add->harga_produk }}</td>

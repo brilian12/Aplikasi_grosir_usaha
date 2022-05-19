@@ -43,6 +43,7 @@ class ProdukController extends Controller
 
         if($request->file("gambar")) {
             $validatedData["gambar"] = $request->file('gambar')->store('artikel');
+            
         }
 
         Produk::create($validatedData);

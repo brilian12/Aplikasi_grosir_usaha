@@ -1,4 +1,3 @@
-
 @extends('layout.master')
 @section('content')
 <div class="container-fluid">
@@ -21,7 +20,13 @@
               </select>&nbsp;</label></div>
         </div>
         <div class="col-md-6">
-          <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+        <form class="form" method="get" action="">
+        
+          <div class="text-md-end dataTables_filter" id="dataTable_filter">
+            <label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search">
+            </label>
+          </div>
+        </form>
         </div>
       </div>
       <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -34,8 +39,8 @@
             </tr>
           </thead>
           <tbody>
-          @php $i = 1 @endphp
-          @foreach ($kategori_produk as $add)
+            @php $i = 1 @endphp
+            @foreach ($kategori_produk as $add)
             <tr>
               <th>{{ $i++ }}</th>
               <td>{{ $add-> nama_kategori}}</td>
@@ -46,10 +51,10 @@
             </tr>
             @endforeach
           </tbody>
-         
+
         </table>
       </div>
-      
+
       <div class="row">
         <div class="col-md-6 align-self-center">
           <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
@@ -64,9 +69,9 @@
               <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
             </ul>
           </nav>
-          
+
         </div>
-        
+
       </div>
     </div>
   </div>
