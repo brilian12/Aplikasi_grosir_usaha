@@ -2,7 +2,7 @@
 @extends('layout.master')
 @section('content')
 <div class="container-fluid">
-  <h3 class="text-dark mb-4">Data Produk</h3>
+  <h3 class="text-dark mb-4">Data Perusahaan</h3>
   <div>
       @if(session()->has('message'))
 
@@ -16,7 +16,7 @@
     </div>
   <div class="card shadow">
     <div class="card-header py-3">
-      <a class="text-decoration-none" href="{{url('/tambahproduk')}}">
+      <a class="text-decoration-none" href="{{url('/tambahperusahaan')}}">
         <p class="text-primary m-0 fw-bold"></p><button class="btn btn-primary" type="button">Tambah Data +</button>
       </a>
 
@@ -40,29 +40,21 @@
           <thead>
             <tr>
               <th>No.</th>
-              <th>Gambar Produk</th>
-              <th>Nama Produk</th>
-              <th>Satuan</th>
-              <th>Harga</th>
-              <th>stok</th>
-              <th>Katagori</th>
+              <th>Nama Perusahaan</th>
+              <th>Tanggal Masuk</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
           @php $i = 1 @endphp
-          @foreach ($produk as $add)
+          @foreach ($perusahaan as $add)
             <tr>
               <th>{{ $i++ }}</th>
-              <th><img class="rounded me-2" width="125" height="125" src="/storage/{{ $add->gambar }}" alt="" title="" ></th>
-              <td>{{ $add->nama_produk }}</td>
-              <td>{{ $add->satuan_produk }}</td>
-              <td>{{ $add->harga_produk }}</td>
-              <td>{{$add->stok_produk}}</td>
-              <td>{{$add->katagori}}</td>
+              <td>{{ $add-> nama_perusahaan}}</td>
+              <td>{{ $add->created_at->format('D M Y') }}</td>
               <td>
-                <a href="{{ url('/editproduk/'.$add->id) }}"><i class="far fa-edit" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 5px;margin-left: 5px;color: rgb(52,82,241);"></i></a>
-                <a href="{{ url('/deleteproduk/'.$add->id) }}"><i class="far fa-trash-alt" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 0px;margin-left: 5px;color: rgb(255,5,5);"></i></a>
+                <a href="{{ url('/editperusahaan/'.$add->id) }}"><i class="far fa-edit" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 5px;margin-left: 5px;color: rgb(52,82,241);"></i></a>
+                <a href="{{ url('/deleteperusahaan/'.$add->id) }}"><i class="far fa-trash-alt" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 0px;margin-left: 5px;color: rgb(255,5,5);"></i></a>
               </td>
             </tr>
             @endforeach

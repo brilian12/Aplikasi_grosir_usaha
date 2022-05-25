@@ -7,6 +7,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\InsertmemberController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -83,6 +84,9 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get("deleteproduk/{id}", [ProdukController::class, "delete"]);
     Route::post("/updateproduk/{id}", [ProdukController::class, "update"]);
     Route::get("editproduk/{id}", [ProdukController::class, "edit"]);
+
+    //Pemesanan
+    Route::get("/pemesanan", [PemesananController::class, "index"]);
 
     Route::post('logout', [LoginController::class, "logout"])->name('logout');
 }); //baru

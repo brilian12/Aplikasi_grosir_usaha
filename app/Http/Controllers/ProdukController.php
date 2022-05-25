@@ -48,12 +48,12 @@ class ProdukController extends Controller
 
         Produk::create($validatedData);
 
-        return redirect('/produk');
+        return redirect('/produk')->with('message','Data Berhasil Ditambahkan');
     } 
 
     public function delete($id) {
         Produk::where("id", $id)->delete();
-        return redirect('/produk');
+        return redirect('/produk')->with('message','Data Berhasil Dihapus');
     } 
 
     public function update(Request $request) {
@@ -67,7 +67,7 @@ class ProdukController extends Controller
         "expired" => $request->expired,
         "id_perusahaan" => $request->id_perusahaan,
         ]);
-        return redirect("/produk");
+        return redirect("/produk")->with('message','Data Berhasil Diubah');
     }
 
     public function edit($id) {

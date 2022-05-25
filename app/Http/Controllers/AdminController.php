@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     public function insert(Request $request) {
         Admin::create($request->all());
-        return redirect('/admin');
+        return redirect('/admin')->with('message','Data Berhasil Ditambahkan');
     } 
 
     public function tambah() {
@@ -28,7 +28,7 @@ class AdminController extends Controller
 
     public function delete($id) {
         Admin::where("id_kategori", $id)->delete();
-        return redirect('/admin');
+        return redirect('/admin')->with('message','Data Berhasil Dihapus');
     }
 
     public function edit($id) {
@@ -46,6 +46,6 @@ class AdminController extends Controller
         "username" => $request->username,
         "pass_admin" => $request->pass_admin,
         ]);
-        return redirect("/admin");
+        return redirect("/admin")->with('message', 'Data Berhasil Diubah');
     }
 }

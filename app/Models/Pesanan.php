@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pesanan extends Model
 {
-    use HasFactory;
+    protected $table = 'produk';
+
+    protected $guarded = [''];
 }

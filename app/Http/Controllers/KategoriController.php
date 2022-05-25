@@ -18,7 +18,7 @@ class KategoriController extends Controller
 
     public function tambahkategori(Request $request) {
         Kategori::create($request->all());
-        return redirect('/kategori');
+        return redirect('/kategori')->with('message','Data Berhasil Ditambahkan');
     }
 
     public function insertkategori() {
@@ -27,14 +27,14 @@ class KategoriController extends Controller
 
     public function delete($id) {
         Kategori::where("id", $id)->delete();
-        return redirect('/kategori');
+        return redirect('/kategori')->with('message','Data Berhasil Dihapus');
     }
 
     public function update(Request $request) {
         Kategori::where("id", $request->id)->update([
         "nama_kategori" => $request->nama_kategori,
         ]);
-        return redirect("/kategori");
+        return redirect("/kategori")->with('message','Data Berhasil Diubah');
     }
 
 

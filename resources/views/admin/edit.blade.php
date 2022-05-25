@@ -9,7 +9,7 @@
         <form  action="/updateadmin/{id}" method="POST" enctype="multipart/form-data" class="custom-form">
         {{ csrf_field() }}
         <input type="hidden" name="id" value="{{ $edit->id_kategori }}">
-        <a class="text-decoration-none" href="{{url('/member')}}">
+        <a class="text-decoration-none" href="{{url('/admin')}}">
             <i class="fas fa-arrow-left fs-4 d-lg-flex justify-content-lg-start"></i>
         </a>
             <h1>Edit Data Admin</h1>

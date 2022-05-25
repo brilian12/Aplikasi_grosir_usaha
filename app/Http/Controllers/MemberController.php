@@ -23,7 +23,7 @@ class MemberController extends Controller
     
     public function insertdata(Request $request) {
         Member::create($request->all());
-        return redirect('/member');
+        return redirect('/member')->with('message','Data Berhasil Ditambahkan');
     } 
 
     public function update(Request $request) {
@@ -33,7 +33,7 @@ class MemberController extends Controller
         "pass_member" => $request->pass_member,
         "alamat" => $request->alamat,
         ]);
-        return redirect("/member");
+        return redirect("/member")->with('message','Data Berhasil Diubah');
     }
 
     public function edit($id) {
@@ -47,7 +47,7 @@ class MemberController extends Controller
 
     public function delete($id) {
         Member::where("id", $id)->delete();
-        return redirect('/member');
+        return redirect('/member')->with('message','Data Berhasil Dihapus');
     } 
 
 

@@ -9,3 +9,12 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
+
+<script type="text/javascript">
+    $("document").ready(function(){
+    setTimeout(function(){
+       $("div.alert").remove();
+    }, 3000 );
+
+});
+</script>

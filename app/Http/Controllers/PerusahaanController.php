@@ -25,13 +25,13 @@ class PerusahaanController extends Controller
     public function insert(Request $request)
     {
         Perusahaan::create($request->all());
-        return redirect('/perusahaan');
+        return redirect('/perusahaan')->with('message', 'Data Berhasil Ditambahkan');
     }
 
     public function delete($id)
     {
         Perusahaan::where("id", $id)->delete();
-        return redirect('/perusahaan');
+        return redirect('/perusahaan')->with('message', 'Data Berhasi Dihapus');
     }
 
     public function update(Request $request)
@@ -39,7 +39,7 @@ class PerusahaanController extends Controller
         Perusahaan::where("id", $request->id)->update([
             "nama_perusahaan" => $request->nama_perusahaan,
         ]);
-        return redirect("/perusahaan");
+        return redirect("/perusahaan")->with('message','Data Berhasil Diperbarui');
     }
 
     public function edit($id)

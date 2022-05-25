@@ -8,12 +8,14 @@
                 <hr class="sidebar-divider my-0">
                 <ul class=" navbar-nav text-light" id="accordionSidebar">
                     <br>
-                    <li class="nav-item"><a class="{{ Route::is('/') ? 'nav-link active' : 'nav-link'}}" href="{{url('/')}}"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="{{url('/produk')}}"><i class="fas fa-table"></i><span>Data Produk</span></a></li>
-                    <li class="nav-item"><a class="{{ Route::is('/about') ? 'nav-link active' : 'nav-link' }}" href="{{url('/kategori')}}"><i class="fas fa-table"></i><span>Kategori Produk</span></a></li>
-                    <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="{{url('/member')}}"><i class="fas fa-table"></i><span>Member</span></a></li>
-                    <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="{{url('/admin')}}"><i class="fas fa-table"></i><span>Admin</span></a></li>
-                    <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="{{url('/perusahaan')}}"><i class="fas fa-table"></i><span>Perusahaan</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/') ? 'nav-link active' : 'nav-link' }}" href="{{url('/')}}"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/pemesanan') ? 'nav-link active' : 'nav-link' }}" href="{{url('/pemesanan')}}"><i class="fas fa-table"></i><span>Pemesanan</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/produk') ? 'nav-link active' : 'nav-link' }}" href="{{url('/produk')}}"><i class="fas fa-table"></i><span>Data Produk</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/kategori') ? 'nav-link active' : 'nav-link' }}" href="{{url('/kategori')}}"><i class="fas fa-table"></i><span>Kategori Produk</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/member') ? 'nav-link active' : 'nav-link' }}" href="{{url('/member')}}"><i class="fas fa-table"></i><span>Member</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/admin') ? 'nav-link active' : 'nav-link' }}" href="{{url('/admin')}}"><i class="fas fa-table"></i><span>Admin</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/perusahaan') ? 'nav-link active' : 'nav-link' }}" href="{{url('/perusahaan')}}"><i class="fas fa-table"></i><span>Perusahaan</span></a></li>
+                    
                     <!--                     
                     <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="404.php"><i class="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
                     <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="blank.php"><i class="fas fa-window-maximize"></i><span>Blank Page</span></a></li> -->

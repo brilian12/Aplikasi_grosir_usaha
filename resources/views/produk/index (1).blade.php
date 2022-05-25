@@ -3,17 +3,6 @@
 @section('content')
 <div class="container-fluid">
   <h3 class="text-dark mb-4">Data Produk</h3>
-  <div>
-      @if(session()->has('message'))
-
-      <div class="alert alert-success alert-dismissible" id="alert">
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      {{session()->get('message')}}
-      
-      </div>
-
-      @endif
-    </div>
   <div class="card shadow">
     <div class="card-header py-3">
       <a class="text-decoration-none" href="{{url('/tambahproduk')}}">
@@ -54,7 +43,8 @@
           @foreach ($produk as $add)
             <tr>
               <th>{{ $i++ }}</th>
-              <th><img class="rounded me-2" width="125" height="125" src="/storage/{{ $add->gambar }}" alt="" title="" ></th>
+              <th><img class="rounded me-2" width="125" height="125" src="{{ asset('images/polindra.png')}}"></th>
+
               <td>{{ $add->nama_produk }}</td>
               <td>{{ $add->satuan_produk }}</td>
               <td>{{ $add->harga_produk }}</td>
