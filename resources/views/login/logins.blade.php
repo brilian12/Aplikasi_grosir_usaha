@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>login_admin</title>
+    <title>login admin</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -29,8 +29,8 @@
             <div class="mb-3">
                 <button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(32,39,103);">Log In</button>
             </div>
-            <a class="forgot" href=" {{ route('register.form') }}">Registrasi</a>
-            <a class="forgot" href="#">Forgot your email password?</a>
+            <!-- <a class="forgot" href=" {{ route('register.form') }}">Registrasi</a>
+            <a class="forgot" href="#">Forgot your email password?</a> -->
         </form>
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

@@ -1,8 +1,8 @@
 
 @extends('layout.master')
+@section('title', 'Data Perusahaan')
 @section('content')
 <div class="container-fluid">
-  <h3 class="text-dark mb-4">Data Perusahaan</h3>
     <div>
       @if(session()->has('message'))
 
@@ -70,11 +70,7 @@
         <div class="col-md-6">
           <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
             <ul class="pagination">
-              <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+            <li>{{ $perusahaan->links() }}</li>
             </ul>
           </nav>
           

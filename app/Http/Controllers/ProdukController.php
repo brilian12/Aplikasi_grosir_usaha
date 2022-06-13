@@ -6,22 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\Kategori;
 use App\Models\Perusahaan;
+use App\Models\Produk_Unit;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProdukController extends Controller
 {
     public function index() {
-        $data = [
-            "produk" => Produk::all()
-        ];
-        return view("/produk.index", $data);
+        $produk = Produk::orderBy("id", "DESC")->get();
+        return view('produk.index', ['produk' => $produk]);
     }
 
     public function tambahproduk() {
         $data = [
             "kategori" => Kategori::all(),
-            "perusahaan" => Perusahaan::all()
+            "produkUnit" => produk_Unit::all()
         ];
 
         
@@ -33,12 +33,9 @@ class ProdukController extends Controller
         $validatedData = $request->validate([
             "gambar" => "image|file|max:1024",
             "nama_produk" => "required",
-            "satuan_produk" => "required",
             "harga_produk" => "required",
-            "stok_produk" => "required",
             "id_kategori" => "required",
-            "expired" => "required",
-            "id_perusahaan" => "required",
+            "id_unit" => "required",
         ]);
 
         if($request->file("gambar")) {
@@ -57,15 +54,23 @@ class ProdukController extends Controller
     } 
 
     public function update(Request $request) {
+
+        if ($request->file("gambar")) {
+            if ($request->gambar_lama) {
+                Storage::delete($request->gambar_lama);
+            }
+
+            $data = $request->file("gambar")->store("produk");
+        } else {
+            $data = $request->gambar_lama;
+        }
+
         Produk::where("id", $request->id)->update([
-        "gambar" => $request->gambar,
+        "gambar" => $data,
         "nama_produk" => $request->nama_produk,
-        "satuan_produk" => $request->satuan_produk,
+        "id_unit" => $request->id_unit,
         "harga_produk" => $request->harga_produk,
-        "stok_produk" => $request->stok_produk,
         "id_kategori" => $request->id_kategori,
-        "expired" => $request->expired,
-        "id_perusahaan" => $request->id_perusahaan,
         ]);
         return redirect("/produk")->with('message','Data Berhasil Diubah');
     }
@@ -73,9 +78,11 @@ class ProdukController extends Controller
     public function edit($id) {
 
         $data = [
-           "edit" => Produk::where("id", $id)->first()
+           "edit" => Produk::where("id", $id)->first(),
+           "kategori" => Kategori::all(),
+            "produkUnit" => Produk_Unit::all()
         ];
         
-        return view('produk/update', $data);
+        return view("produk.update", $data);
     } 
 }

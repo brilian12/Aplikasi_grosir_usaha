@@ -18,6 +18,10 @@
       @endif
       <form action="/updateproduk" method="POST" enctype="multipart/form-data" class="custom-form">
       {{ csrf_field() }}
+
+      <input type="hidden" name="id" value="{{ $edit->id }}">
+      <input type="hidden" name="gambar_lama" value="{{ $edit->gambar }}">
+
         <a class="text-decoration-none" href="{{url('/produk')}}">
           <i class="fas fa-arrow-left fs-4 d-lg-flex justify-content-lg-start"></i>
         </a>
@@ -35,21 +39,9 @@
           </div>
         </div>
         <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Satuan Produk</label></div>
-          <div class="col-sm-6 input-column">
-            <input name="satuan_produk" value="{{$edit->satuan_produk}}" class="form-control" type="text">
-          </div>
-        </div>
-        <div class="row form-group">
           <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Harga Produk</label></div>
           <div class="col-sm-6 input-column">
-            <input name="harga_produk" value="{{$edit->satuan_produk}}" class="form-control" type="number">
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Stok Produk</label></div>
-          <div class="col-sm-6 input-column">
-            <input name="stok_produk" value="{{$edit->stok_produk}}" class="form-control" type="number">
+            <input name="harga_produk" value="{{$edit->harga_produk}}" class="form-control" type="number">
           </div>
         </div>
         <div class="row form-group">
@@ -57,28 +49,22 @@
           <div class="col-sm-6 input-column">
             <select name="id_kategori" class="form-control" id="cars">
               @foreach ($kategori as $add)
-              <option value="{{ $edit->id }}> {{ $edit->nama_kategori }}"</option>
+              <option value={{ $add->id }}> {{ $add->nama_kategori }}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Unit Produk</label></div>
+          <div class="col-sm-6 input-column">
+            <select name="id_unit" class="form-control" id="cars">
+              @foreach ($produkUnit as $add)
+              <option value={{ $add->id }}> {{ $add->unit }}</option>
               @endforeach
             </select>
           </div>
         </div>
 
-        <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Expired</label></div>
-          <div class="col-sm-6 input-column">
-            <input name="expired" value="{{$edit->expired}}" class="form-control" type="date">
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Perusahaan</label></div>
-          <div class="col-sm-6 input-column">
-            <select name="id_perusahaan" class="form-control" id="id_perusahaan">
-              @foreach ($perusahaan as $add)
-              <option value="{{ $edit->id }}> {{ $edit->nama_perusahaan }}"</option>
-              @endforeach
-            </select>
-          </div>
-        </div>
 
         <button type="submit" class="btn btn-light submit-button" type="button">Edit Produk</button>
       </form>

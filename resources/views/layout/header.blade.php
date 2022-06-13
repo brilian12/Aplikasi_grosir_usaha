@@ -9,13 +9,14 @@
                 <ul class=" navbar-nav text-light" id="accordionSidebar">
                     <br>
                     <li class="nav-item"><a class="{{ Request::url() == url('/') ? 'nav-link active' : 'nav-link' }}" href="{{url('/')}}"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="{{ Request::url() == url('/pemesanan') ? 'nav-link active' : 'nav-link' }}" href="{{url('/pemesanan')}}"><i class="fas fa-table"></i><span>Pemesanan</span></a></li>
+                    <li class="nav-item"><a class="{{ Request::url() == url('/pemesanan') ? 'nav-link active' : 'nav-link' }}" href="{{url('/pemesanan')}}"><i class="fas fa-table"></i><span>Pesanan</span></a></li>
                     <li class="nav-item"><a class="{{ Request::url() == url('/produk') ? 'nav-link active' : 'nav-link' }}" href="{{url('/produk')}}"><i class="fas fa-table"></i><span>Data Produk</span></a></li>
                     <li class="nav-item"><a class="{{ Request::url() == url('/kategori') ? 'nav-link active' : 'nav-link' }}" href="{{url('/kategori')}}"><i class="fas fa-table"></i><span>Kategori Produk</span></a></li>
                     <li class="nav-item"><a class="{{ Request::url() == url('/member') ? 'nav-link active' : 'nav-link' }}" href="{{url('/member')}}"><i class="fas fa-table"></i><span>Member</span></a></li>
                     <li class="nav-item"><a class="{{ Request::url() == url('/admin') ? 'nav-link active' : 'nav-link' }}" href="{{url('/admin')}}"><i class="fas fa-table"></i><span>Admin</span></a></li>
-                    <li class="nav-item"><a class="{{ Request::url() == url('/perusahaan') ? 'nav-link active' : 'nav-link' }}" href="{{url('/perusahaan')}}"><i class="fas fa-table"></i><span>Perusahaan</span></a></li>
-                    
+                    <!-- <li class="nav-item"><a class="{{ Request::url() == url('/perusahaan') ? 'nav-link active' : 'nav-link' }}" href="{{url('/perusahaan')}}"><i class="fas fa-table"></i><span>Perusahaan</span></a></li> -->
+                    <li class="nav-item"><a class="{{ Request::url() == url('/produkUnit') ? 'nav-link active' : 'nav-link' }}" href="{{url('/produkUnit')}}"><i class="fas fa-table"></i><span>Unit Produk</span></a></li>
+
                     <!--                     
                     <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="404.php"><i class="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
                     <li class="nav-item"><a class="{{ Route::is('about') ? 'nav-link active' : 'nav-link' }}" href="blank.php"><i class="fas fa-window-maximize"></i><span>Blank Page</span></a></li> -->
@@ -27,48 +28,37 @@
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ..."><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
-                        </form>
+                        <h2 class="d-none d-lg-inline me-2 text-gray-700">@yield('title')</h2>
                         <ul class="navbar-nav flex-nowrap ms-auto">
-                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
-                                <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
-                                    <form class="me-auto navbar-search w-100">
-                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
-                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
                             <li class="nav-item dropdown no-arrow mx-1"></li>
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                            <div class="nav-item dropdown no-arrow">
-                                <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
-                                
-                                
-                                <span class="d-none d-lg-inline me-2 text-gray-600 small">
-                                    {{ Auth::user()->name ?? 'None' }}
-                                </span>
-                               
-                                </a>
-                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
-                                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400">
+                                <div class="nav-item dropdown no-arrow">
+                                    <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
 
-                                        </i>&nbsp;Profile</a><a class="dropdown-item" href="#">
+
+                                        <span class="d-none d-lg-inline me-2 text-gray-600 small">
+                                            {{ Auth::user()->first_name ?? '' }} {{ Auth::user()->last_name ?? '' }}
+                                        </span>
+
+                                    </a>
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
+                                        <!-- <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400">
+
+                                            </i>&nbsp;Profile</a><a class="dropdown-item" href="#">
                                             <i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400">
 
-                                        </i>
-                                        &nbsp;Edit Profile</a><a class="dropdown-item" href="#">
-                                    </a>
+                                            </i>
+                                            &nbsp;Edit Profile</a><a class="dropdown-item" href="#">
+                                        </a>
                                         <div class="dropdown-divider">
 
-                                        </div>
+                                        </div> -->
                                         <form action="{{ route('logout') }}" method="post" class="dropdown-item" href="#">
-                                        @csrf
+                                            @csrf
                                             <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400">
 
                                             </i>

@@ -12,7 +12,7 @@ class PerusahaanController extends Controller
     public function index()
     {
         $data = [
-            "perusahaan" => Perusahaan::all()
+            "perusahaan" => Perusahaan::paginate(10)
         ];
         return view("/perusahaan.index", $data);
     }

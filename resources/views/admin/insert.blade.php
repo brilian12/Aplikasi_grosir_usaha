@@ -14,21 +14,27 @@
         </a>
             <h1>Tambah Data Admin</h1>
             <div class="row form-group">
-                <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Nama Lengkap</label></div>
+                <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Nama Depan</label></div>
                 <div class="col-sm-6 input-column">
-                  <input name="nama_admin" class="form-control" type="text">
+                  <input name="first_name" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Nama Belakang</label></div>
+                <div class="col-sm-6 input-column">
+                  <input name="last_name" class="form-control" type="text">
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Email</label></div>
                 <div class="col-sm-6 input-column">
-                  <input name="username" class="form-control" type="text">
+                  <input name="email" class="form-control" type="text">
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Password</label></div>
                 <div class="col-sm-6 input-column">
-                  <input name="pass_admin" class="form-control" type="password">
+                  <input name="password" class="form-control" type="password">
                 </div>
             </div>
             <button type="submit" class="btn btn-light submit-button" type="button">Tambah Admin</button>

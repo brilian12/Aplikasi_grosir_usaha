@@ -1,18 +1,18 @@
 @extends('layout.master')
+@section('title', 'Kategori Produk')
 @section('content')
 <div class="container-fluid">
-  <h3 class="text-dark mb-4">Kategori Produk</h3>
   <div>
-      @if(session()->has('message'))
+    @if(session()->has('message'))
 
-      <div class="alert alert-success alert-dismissible" id="alert">
+    <div class="alert alert-success alert-dismissible" id="alert">
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       {{session()->get('message')}}
-      
-      </div>
 
-      @endif
     </div>
+
+    @endif
+  </div>
   <div class="card shadow">
     <div class="card-header py-3">
       <a class="text-decoration-none" href="{{url('/insertkategori')}}">
@@ -21,7 +21,7 @@
 
     </div>
     <div class="card-body">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-6 text-nowrap">
           <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
                 <option value="10" selected="">10</option>
@@ -31,15 +31,15 @@
               </select>&nbsp;</label></div>
         </div>
         <div class="col-md-6">
-        <form class="form" method="get" action="">
-        
-          <div class="text-md-end dataTables_filter" id="dataTable_filter">
-            <label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search">
-            </label>
-          </div>
-        </form>
+          <form class="form" method="get" action="">
+
+            <div class="text-md-end dataTables_filter" id="dataTable_filter">
+              <label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search">
+              </label>
+            </div>
+          </form>
         </div>
-      </div>
+      </div> -->
       <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
         <table class="table my-0" id="dataTable">
           <thead>
@@ -73,11 +73,7 @@
         <div class="col-md-6">
           <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
             <ul class="pagination">
-              <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+              <li>{{ $kategori_produk->links() }}</li>
             </ul>
           </nav>
 

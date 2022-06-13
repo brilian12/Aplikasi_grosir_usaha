@@ -1,17 +1,8 @@
+@extends('pemesanan.index')
 
-@extends('layout.master')
-@section('content')
-<div class="container-fluid">
-  <h3 class="text-dark mb-4">Data Produk</h3>
-  <div class="card shadow">
-    <div class="card-header py-3">
-      <a class="text-decoration-none" href="{{url('/tambahproduk')}}">
-        <p class="text-primary m-0 fw-bold"></p><button class="btn btn-primary" type="button">Tambah Data +</button>
-      </a>
-
-    </div>
+<div class="card shadow">
     <div class="card-body">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-6 text-nowrap">
           <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
                 <option value="10" selected="">10</option>
@@ -23,44 +14,44 @@
         <div class="col-md-6">
           <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
         </div>
-      </div>
+      </div> -->
       <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
         <table class="table my-0" id="dataTable">
           <thead>
             <tr>
               <th>No.</th>
-              <th>Gambar Produk</th>
-              <th>Nama Produk</th>
-              <th>Satuan</th>
-              <th>Harga</th>
-              <th>stok</th>
-              <th>Katagori</th>
+              <th>Nama Pemesan</th>
+              <th>Status Pemesanan</th>
+              <th>Detail Pesanan</th>
               <th>Aksi</th>
+
             </tr>
           </thead>
           <tbody>
-          @php $i = 1 @endphp
-          @foreach ($produk as $add)
+            @php $i = 1 @endphp
+            @foreach ($pesanan as $add)
             <tr>
               <th>{{ $i++ }}</th>
-              <th><img class="rounded me-2" width="125" height="125" src="{{ asset('images/polindra.png')}}"></th>
-
-              <td>{{ $add->nama_produk }}</td>
-              <td>{{ $add->satuan_produk }}</td>
-              <td>{{ $add->harga_produk }}</td>
-              <td>{{$add->stok_produk}}</td>
-              <td>{{$add->katagori}}</td>
+              <td>{{ $add-> id_member }}</td>
+              <td>{{ $add-> status_pesanan }}</td>
               <td>
-                <a href="{{ url('/editproduk/'.$add->id) }}"><i class="far fa-edit" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 5px;margin-left: 5px;color: rgb(52,82,241);"></i></a>
-                <a href="{{ url('/deleteproduk/'.$add->id) }}"><i class="far fa-trash-alt" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 0px;margin-left: 5px;color: rgb(255,5,5);"></i></a>
+                <a href="#"><button type="button" class="btn btn-outline-info">Detail</button></a>
+              </td>
+              <td>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Pesanan Masuk</option>
+                  <option value="2">Pesanan Diproses</option>
+                  <option value="3">Pesanan Siap</option>
+                  <option value="4">Pesanan Selesai</option>
+                </select>
               </td>
             </tr>
             @endforeach
           </tbody>
-         
+
         </table>
       </div>
-      
+
       <div class="row">
         <div class="col-md-6 align-self-center">
           <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
@@ -75,12 +66,11 @@
               <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
             </ul>
           </nav>
-          
+
         </div>
-        
+
       </div>
     </div>
   </div>
 </div>
 </div>
-@endsection

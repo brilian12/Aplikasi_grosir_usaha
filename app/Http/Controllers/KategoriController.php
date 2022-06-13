@@ -11,7 +11,7 @@ class KategoriController extends Controller
 {
     public function index() {
         $data = [
-            "kategori_produk" => Kategori::all()
+            "kategori_produk" => Kategori::paginate(10)
         ];
         return view("/kategori.index", $data);
     }

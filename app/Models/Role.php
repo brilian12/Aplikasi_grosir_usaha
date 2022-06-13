@@ -9,5 +9,9 @@ class Role extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $table = "tb_role";
+
+    public $timestamps = false;
+
+    protected $fillable = ["description"];
 }

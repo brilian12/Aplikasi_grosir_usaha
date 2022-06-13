@@ -13,12 +13,11 @@ class CreateMemberTable extends Migration
      */
     public function up()
     {
-        Schema::create('member', function (Blueprint $table) {
+        Schema::create('tb_member', function (Blueprint $table) {
             $table->id();
-            $table->string("nama_member");
             $table->bigInteger("no_telp");
-            $table->string("pass_member");
             $table->string("alamat");
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateMemberTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('member');
+        Schema::dropIfExists('tb_member');
     }
 }

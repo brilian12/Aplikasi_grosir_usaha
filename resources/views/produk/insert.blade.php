@@ -1,5 +1,6 @@
 
 @extends('layout.master')
+@section('title', 'Data Produk')
 @section('content')
 
 <div class="container-fluid">
@@ -34,21 +35,9 @@
           </div>
         </div>
         <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Satuan Produk</label></div>
-          <div class="col-sm-6 input-column">
-            <input name="satuan_produk" class="form-control" type="text">
-          </div>
-        </div>
-        <div class="row form-group">
           <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Harga Produk</label></div>
           <div class="col-sm-6 input-column">
             <input name="harga_produk" class="form-control" type="number">
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Stok Produk</label></div>
-          <div class="col-sm-6 input-column">
-            <input name="stok_produk" class="form-control" type="number">
           </div>
         </div>
         <div class="row form-group">
@@ -61,24 +50,16 @@
             </select>
           </div>
         </div>
-
         <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Expired</label></div>
+          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Unit Produk</label></div>
           <div class="col-sm-6 input-column">
-            <input name="expired" class="form-control" type="date">
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Perusahaan</label></div>
-          <div class="col-sm-6 input-column">
-            <select name="id_perusahaan" class="form-control" id="id_perusahaan">
-              @foreach ($perusahaan as $add)
-              <option value={{ $add->id }}> {{ $add->nama_perusahaan }}</option>
+            <select name="id_unit" class="form-control" id="cars">
+              @foreach ($produkUnit as $add)
+              <option value={{ $add->id }}> {{ $add->unit }}</option>
               @endforeach
             </select>
           </div>
         </div>
-
         <button type="submit" class="btn btn-light submit-button" type="button">Tambah Produk</button>
       </form>
     </div>

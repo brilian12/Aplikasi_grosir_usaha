@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignToUsersTable extends Migration
+class CreateProdukUnitTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddForeignToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('role_id')->references('id')->on('roles');
+        Schema::create('produk_unit', function (Blueprint $table) {
+            $table->id();
+            $table->string('unit');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddForeignToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_role_id_foreign');
-        });
+        Schema::dropIfExists('produk_unit');
     }
 }

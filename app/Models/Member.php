@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class Member extends Model
 { 
-    protected $table = 'member';
+    protected $table = 'tb_member';
 
     protected $guarded = [''];
 
     //public $timestamps = false;
+    public function getUser()
+    {
+        return $this->belongsTo("App\Models\User", "id", "id");
+    }
 }

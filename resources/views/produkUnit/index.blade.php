@@ -1,10 +1,9 @@
 
-
 @extends('layout.master')
-@section('title', 'Data Admin')
+@section('title', 'Data Unit Produk')
 @section('content')
 <div class="container-fluid">
-  <div>
+    <div>
       @if(session()->has('message'))
 
       <div class="alert alert-success alert-dismissible" id="alert">
@@ -17,7 +16,7 @@
     </div>
   <div class="card shadow">
     <div class="card-header py-3">
-      <a class="text-decoration-none" href="{{url('/tambahadmin')}}">
+      <a class="text-decoration-none" href="{{url('/tambahprodukUnit')}}">
         <p class="text-primary m-0 fw-bold"></p><button class="btn btn-primary" type="button">Tambah Data +</button>
       </a>
 
@@ -41,21 +40,19 @@
           <thead>
             <tr>
               <th>No.</th>
-              <th>Nama Lengkap</th>
-              <th>Username</th>
+              <th>Nama Unit Produk</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
           @php $i = 1 @endphp
-          @foreach ($admin as $add)
+          @foreach ($produkUnit as $add)
             <tr>
               <th>{{ $i++ }}</th>
-              <td>{{ $add->first_name }} {{$add->last_name}}</td>
-              <td>{{ $add->email }}</td>
+              <td>{{ $add->unit}}</td>
               <td>
-                <a href="{{ url('/editadmin/'.$add->id) }}"><i class="far fa-edit" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 5px;margin-left: 5px;color: rgb(52,82,241);"></i></a>
-                <a href="{{ url('/deleteadmin/'.$add->id) }}"><i class="far fa-trash-alt" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 0px;margin-left: 5px;color: rgb(255,5,5);"></i></a>
+                <a href="{{ url('/editprodukUnit/'.$add->id) }}"><i class="far fa-edit" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 5px;margin-left: 5px;color: rgb(52,82,241);"></i></a>
+                <a href="{{ url('/deleteprodukUnit/'.$add->id) }}"><i class="far fa-trash-alt" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 0px;margin-left: 5px;color: rgb(255,5,5);"></i></a>
               </td>
             </tr>
             @endforeach
@@ -71,10 +68,7 @@
         <div class="col-md-6">
           <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
             <ul class="pagination">
-              <li>
-                <!-- {{ $admin->links() }} -->
-
-              </li>
+            <li>{{ $produkUnit->links() }}</li>
             </ul>
           </nav>
           

@@ -12,4 +12,13 @@ class Produk extends Model
     protected $guarded = [''];
 
     //public $timestamps = false;
+    public function getKategori()
+    {
+        return $this->belongsTo("App\Models\kategori", "id_kategori", "id");
+    }
+
+    public function getUnit()
+    {
+        return $this->belongsTo("App\Models\Produk_Unit", "id_unit", "id");
+    }
 }

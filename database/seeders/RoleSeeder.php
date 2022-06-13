@@ -14,19 +14,16 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            [
-                'role_name' => 'admin',
-                'role_status' => true,
-            ],
-            [
-                'role_name' => 'member',
-                'role_status' => true,
-            ]
-        ];
+        Role::create([
+            "description" => "Super Admin"
+        ]);
 
-        foreach ($data as $key => $value) {
-            Role::create($value);
-        }
+        Role::create([
+            "description" => "Admin"
+        ]);
+
+        Role::create([
+            "description" => "Member"
+        ]);
     }
 }

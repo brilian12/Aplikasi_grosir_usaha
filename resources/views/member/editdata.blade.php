@@ -15,20 +15,40 @@
         </a>
             <h1>Edit Data Member</h1>
             <div class="row form-group">
-                <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Nama Lengkap</label></div>
-                <div class="col-sm-6 input-column"><input name="nama_member" value="{{ $edit->nama_member }}" class="form-control" type="text" /></div>
+                <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Nama Depan</label></div>
+                <div class="col-sm-6 input-column">
+                  <input name="first_name" value="{{$edit->first_name}}" type="text"class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Nama Belakang</label></div>
+                <div class="col-sm-6 input-column">
+                  <input name="last_name" value="{{$edit->last_name}}" class="form-control" type="text">
+                </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">No. Telp</label></div>
-                <div class="col-sm-6 input-column"><input name="no_telp" value="{{ $edit->no_telp }}" class="form-control" type="number" /></div>
+                <div class="col-sm-6 input-column">
+                  <input name="no_telp" value="{{$edits->no_telp}}" class="form-control" type="number">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Email</label></div>
+                <div class="col-sm-6 input-column">
+                  <input name="email" value="{{$edit->email}}" class="form-control" type="email">
+                </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Password</label></div>
-                <div class="col-sm-6 input-column"><input name="pass_member" value="{{ $edit->pass_member }}" class="form-control" type="password" /></div>
+                <div class="col-sm-6 input-column">
+                  <input name="password" class="form-control" type="password">
+                </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-4 text-start label-column"><label class="col-form-label" for="name-input-field">Alamat</label></div>
-                <div class="col-sm-6 input-column"><input name="alamat" value="{{ $edit->alamat }}" class="form-control" type="text" /></div>
+                <div class="col-sm-6 input-column">
+                  <input name="alamat" value="{{$edits->alamat}}" class="form-control" type="text">
+                </div>
             </div>
         
             <button class="btn btn-light submit-button" type="submit">Edit</button>
