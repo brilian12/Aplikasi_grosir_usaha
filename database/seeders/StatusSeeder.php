@@ -16,20 +16,20 @@ class StatusSeeder extends Seeder
         //
         $data = [
             [
-                'status_name' => 'pesanan_masuk',
-                'status' => true,
+                'status_name' => 'Pesanan Masuk',
+                'status' => 1,
             ],
             [
-                'status_name' => 'pesanan_proses',
-                'status' => true,
+                'status_name' => 'Pesanan Diproses',
+                'status' => 2,
             ],
             [
-                'status_name' => 'pesanan_siap',
-                'status' => true,
+                'status_name' => 'Pesanan Siap Diambil',
+                'status' => 3,
             ],
             [
-                'status_name' => 'pesanan_selesai',
-                'status' => true,
+                'status_name' => 'Riwayat Pesanan',
+                'status' => 4
             ]
         ];
 

@@ -49,7 +49,7 @@ Route::middleware(['auth:web'])->group(function () {
         $produkUnit = Produk_Unit::count();
 
         return view('/dashboard/index', compact('kategori', 'admin','perusahaan','member','produk','produkUnit'));
-    })->name('index');
+    })->name('index')->middleware('CekAdmin');
     
     //dashboard
     // Route::get("/dashboard", [DashboardController::class, 'index']);

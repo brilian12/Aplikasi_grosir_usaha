@@ -17,7 +17,7 @@ class CreatePesananTable extends Migration
             $table->id();
             $table->dateTime("waktu_pesanan");
             $table->integer("jumlah_pesanan");
-            $table->string("status_pesanan");
+            $table->integer("status_pesanan");
             $table->integer("id_member");
             
             

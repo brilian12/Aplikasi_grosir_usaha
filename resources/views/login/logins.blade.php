@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +15,7 @@
         <form method="post" action="{{ route('login') }}" style="padding: 43px;background: rgba(255,255,255,0.94);">
             @csrf
             <h1 style="text-align: center;">Grosir Usaha</h1>
+
             <div class="illustration"></div>
             <div class="mb-3">
                 <input class="form-control" type="email" name="email" placeholder="Email">
@@ -26,9 +25,18 @@
                 <input class="form-control" type="password" name="password" placeholder="Password">
                 <span class="text-danger">{{ $errors->first('password') }}</span>
             </div>
+            <div>
+                @if(session()->has('message'))
+                <div class="text-danger" id="alert">
+                    {{session()->get('message')}}
+
+                </div>
+                @endif
+            </div>
             <div class="mb-3">
                 <button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(32,39,103);">Log In</button>
             </div>
+
             <!-- <a class="forgot" href=" {{ route('register.form') }}">Registrasi</a>
             <a class="forgot" href="#">Forgot your email password?</a> -->
         </form>

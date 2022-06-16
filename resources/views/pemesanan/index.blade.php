@@ -103,8 +103,8 @@
             @foreach ($pesanan as $add)
             <tr>
               <th>{{ $i++ }}</th>
-              <td>{{ $add-> id_member }}</td>
-              <td>{{ $add-> status_pesanan }}</td>
+              <td>{{ $add->getUser->first_name }} {{ $add->getUser->last_name}}</td>
+              <td>{{ $add->getStatus->status_name }}</td>
               <td>
                 <a href="#"><button type="button" class="btn btn-outline-info">Detail</button></a>
               </td>

@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers;
 namespace App\Http\Middleware;
 use App\models\User;
 use App\models\Role;
@@ -18,10 +18,10 @@ class CekAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        $user = User::where('id_role', $request->id_role)->first();
-        if ($user == 2) {
-            return redirect('/dashboard');
+        if (auth()->user()->id_role == 2) {
+            
+            return $next($request);
         }
-        return $next($request);
+        return redirect('login')->with('message',"You don't have admin access");
     }
 }
