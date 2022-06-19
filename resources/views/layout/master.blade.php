@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome-all.min.css')}}">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
     <link rel="stylesheet" href="{{asset('assets/css/Pretty-Registration-Form.css')}}">
+    <livewire:styles/>
+    <livewire:scripts/>
 </head>
+
     @include('layout.header')
     @yield('content')
     @include('layout.footer')

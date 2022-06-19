@@ -10,11 +10,4 @@
     <script src="assets/js/theme.js"></script>
 </body>
 
-<script type="text/javascript">
-    $("document").ready(function(){
-    setTimeout(function(){
-       $("div.alert").remove();
-    }, 3000 );
-
-});
-</script>
+<script src="{{ mix('js/app.js') }}"></script>

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <section class="login-clean" style="padding: max(10%) ;background: url(&quot;assets/img/cipto%20gudang%20rabat.png&quot;) center / cover no-repeat, rgba(0,0,0,0);">
+    <section class="login-clean" style="padding: max(13%) ;background: url(&quot;assets/img/cipto%20gudang%20rabat.png&quot;) center / cover no-repeat, rgba(0,0,0,0);">
         <form method="post" action="{{ route('login') }}" style="padding: 43px;background: rgba(255,255,255,0.94);">
             @csrf
             <h1 style="text-align: center;">Grosir Usaha</h1>
