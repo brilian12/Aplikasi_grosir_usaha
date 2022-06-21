@@ -61,6 +61,7 @@
               <td>
                 <a href="{{ url('/editproduk/'.$add->id) }}"><i class="far fa-edit" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 5px;margin-left: 5px;color: rgb(52,82,241);"></i></a>
                 <a href="{{ url('/deleteproduk/'.$add->id) }}"><i class="far fa-trash-alt" data-bss-hover-animate="pulse" style="font-size: 25px;margin-right: 0px;margin-left: 5px;color: rgb(255,5,5);"></i></a>
+                
               </td>
             </tr>
             @endforeach

@@ -19,6 +19,7 @@ use App\models\Member;
 use App\models\Perusahaan;
 use App\models\Produk;
 use App\Models\Produk_Unit;
+use App\Models\Pesanan;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::middleware(['auth:web'])->group(function () {
         $member = Member::count();
         $produk = Produk::count();
         $produkUnit = Produk_Unit::count();
+        $pesanan =  Pesanan::count();
 
         return view('/dashboard/index', compact('kategori', 'admin','perusahaan','member','produk','produkUnit'));
     })->name('index')->middleware('CekAdmin');
@@ -101,6 +103,13 @@ Route::middleware(['auth:web'])->group(function () {
 
     //Pemesanan
     Route::get("/pemesanan", [PemesananController::class, "index"]);
+    Route::get("/prosespesanan", [PemesananController::class, "proses"]);
+    Route::get("/siappesanan", [PemesananController::class, "siap"]);
+    Route::get("/riwayatpesanan", [PemesananController::class, "riwayat"]);
+
+
+
+
 
     Route::post('logout', [LoginController::class, "logout"])->name('logout');
 }); //baru
