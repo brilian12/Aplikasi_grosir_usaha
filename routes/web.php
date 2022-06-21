@@ -106,7 +106,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get("/prosespesanan", [PemesananController::class, "proses"]);
     Route::get("/siappesanan", [PemesananController::class, "siap"]);
     Route::get("/riwayatpesanan", [PemesananController::class, "riwayat"]);
-
+    Route::get("/detailpesanan/{id}", [PemesananController::class, "detail"]);
 
 
 

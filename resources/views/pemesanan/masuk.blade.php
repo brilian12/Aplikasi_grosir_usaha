@@ -36,7 +36,8 @@
                         <td>{{ $add->getUser->first_name }} {{ $add->getUser->last_name}}</td>
                         <td>{{ $add->getStatus->status_name }}</td>
                         <td>
-                            <a href="#"><button type="button" class="btn btn-outline-info">Detail</button></a>
+                            
+                            <a href="{{url('/detailpesanan{id}')}}"><button type="button" class="btn btn-outline-info">Detail</button></a>
                         </td>
                         <td>
 
