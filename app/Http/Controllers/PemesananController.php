@@ -8,22 +8,23 @@ use Illuminate\Http\Request;
 class PemesananController extends Controller
 {
     public function index() {
-        $pesanan = Pesanan::orderBy("id","ASC")->paginate(10);
+        $pesanan = Pesanan::where("status_pesanan","1","ASC")->paginate(10);
         return view("/pemesanan/masuk", ['pesanan' => $pesanan]);
     }
 
+
     public function proses() {
-        $pesanan = Pesanan::orderBy("id","ASC")->paginate(10);
+        $pesanan = Pesanan::where("status_pesanan","2","ASC")->paginate(10);
         return view("/pemesanan/proses", ['pesanan' => $pesanan]);
     }
 
     public function riwayat() {
-        $pesanan = Pesanan::orderBy("id","ASC")->paginate(10);
+        $pesanan = Pesanan::where("status_pesanan","3","ASC")->paginate(10);
         return view("/pemesanan/riwayat", ['pesanan' => $pesanan]);
     }
 
     public function siap() {
-        $pesanan = Pesanan::orderBy("id","ASC")->paginate(10);
+        $pesanan = Pesanan::where("status_pesanan","4","ASC")->paginate(10);
         return view("/pemesanan/siap", ['pesanan' => $pesanan]);
     }
 }
